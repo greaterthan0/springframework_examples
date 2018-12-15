@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security-4.2.xsd
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<http use-expressions="true">
+		<intercept-url pattern="/homepage*" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/admin*" access="hasRole('ROLE_ADMIN')" />
+		<!-- <form-login /> -->
+		<http-basic />
+	</http>
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="user" password="123123" authorities="ROLE_USER" />
+				<user name="admin" password="123123" authorities="ROLE_ADMIN" />
+			</user-service>
+			<password-encoder ref="passwordEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+	<beans:bean id="passwordEncoder"  class="org.springframework.security.crypto.password.NoOpPasswordEncoder" factory-method="getInstance" >
+	</beans:bean> 
+	
+</beans:beans>
