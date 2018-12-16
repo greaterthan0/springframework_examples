@@ -11,8 +11,8 @@ public class WelcomeController {
 		return "Welcome to Spring MVC example.";
 	}
 	
-	@RequestMapping("/hi")
-	public @ResponseBody String hi() {
-		return "Hi Message";
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
 	}
 }

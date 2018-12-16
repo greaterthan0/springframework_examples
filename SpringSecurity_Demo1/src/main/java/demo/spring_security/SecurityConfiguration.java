@@ -12,4 +12,6 @@ public class SecurityConfiguration{
         auth
             .inMemoryAuthentication().withUser("user").password("{noop}password").roles("USER");
     }
+	
+	
 }
