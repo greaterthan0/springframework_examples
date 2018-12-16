@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class WelcomeController {
 	@RequestMapping("/")
 	public @ResponseBody String welcome() {
-		return "Welcome to Spring MVC. This is example without using xml based configurations  ..";
+		return "Welcome to Spring MVC example.";
 	}
 }
